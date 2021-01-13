@@ -14,6 +14,10 @@ function generatePassword() {
     var spcChar = confirm("Do you wnat special characters?");
     var numBrs = confirm("Do you want numbers included in your password?");
 
+    if(passLeng < 8 || passLeng > 128) {
+        alert("ALERT! Invalid number of characters, Please choose between 8 - 128");
+    }
+
     console.log(passLeng);
     console.log(uppCase);
     console.log(lwrCase);
