@@ -3,11 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function generatePassword() {
-    var myString = "qwerty";
-    for (var i = 0; i < myString.length; i++) {
-        console.log(myString.charAt(i));
-    }
-    
+       
     var passLeng = prompt("Please select a length of characters between 8 - 128 characters");
     
     while(passLeng < 8 || passLeng > 128) {
@@ -27,7 +23,7 @@ function generatePassword() {
         spcChar =   confirm("Do you wnat special characters?");
         numBrs =    confirm("Do you want numbers included in your password?");
     }   
-    
+    var randomChar = "";
     var charSet = "";
     if(uppCase) {
         charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -42,7 +38,12 @@ function generatePassword() {
         charSet += "1234567890"
     }
 
-
+    
+    for (var i = 0; i < passLeng; i++) {
+        var num = Math.floor(Math.random() * charSet.length);
+        randomChar += charSet[num];
+    }    
+        return randomChar;
 }
 
 function writePassword() {
